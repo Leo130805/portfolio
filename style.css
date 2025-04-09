@@ -1,6 +1,211 @@
+:root{
+  --color-accent: oklch(65% 50% 0);
+}
+
 body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
     font: 100%/1.5 system-ui;
+
+    max-width: 100ch;
+    margin-inline: max(1em, (100% - 100ch) / 2);
+
+    nav {
+      display: flex;
+      margin-bottom: auto;
+      border-bottom-width: 0.1px;
+      border-bottom-style: solid;
+      border-bottom-color: oklch(80% 3% 200);
+      
+
+      a {
+        flex: 1;
+        text-decoration: none;
+        color: inherit;
+        text-align: center;
+        padding: 0.5em;
+      }
+
+      .current {
+        border-bottom-width: 0.4em;
+        border-bottom-style: solid;
+        border-bottom-color: oklch(80% 3% 200);
+        padding-bottom: 0.1em;
+      }
+
+      a:hover {
+        border-bottom-width: 0.4em;
+        border-bottom-style: solid;
+        border-bottom-color: var(--color-accent);
+        background-color: oklch(from var(--color-accent) 95% 5% h)
+      }
+    }
+
+    input, textarea, button, label {
+      font: inherit;
+  }
+
+    form {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1em;
+    }
+    
+    label {
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-column: 1 / -1;
+    }
+
+    button {
+      grid-column: 1 / -1;
+      width: 100%;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+      gap: 1em;
+    }
+    
+    article {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: span 3;
+      gap: 1em;
+    }
+    
+    article h2 {
+      margin: 0;
+    }
+    
+    h1 {
+      font-size: 400%;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.1;
+      text-wrap: balance;
+    }
+
+    /* =========================
+   GLOBAL + BASE STYLES
+========================= */
+    :root {
+      --accent-color: #e91e63; /* Change to any color you like */
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      color: #333;
+      line-height: 1.6;
+      max-width: 100ch;           /* Nicely readable line width */
+      margin-inline: auto;        /* Center the content horizontally */
+      padding: 2rem;             /* Some breathing room around content */
+      background-color: #fff;     /* Keep it simple, or change to #f9f9f9, etc. */
+    }
+
+    /* =========================
+      HEADER & NAV
+    ========================= */
+    header {
+      border-bottom: 2px solid #ddd;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-info p {
+      margin: 0.2rem 0;
+      line-height: 1.4;
+      color: #555;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: inherit;
+      padding: 0.5rem;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    /* =========================
+      SECTIONS (Resume Content)
+    ========================= */
+    .section {
+      margin-bottom: 2rem; /* Spacing below each major section */
+    }
+
+    /* Section Headings (e.g., EDUCATION, EXPERIENCE) */
+    .section h2 {
+      color: #e91e63; /* Pink accent color */
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    /* Company / Institution Titles (h3) */
+    .section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.2rem;  /* Tighten spacing under company name */
+      font-weight: bold;
+    }
+
+    /* The first <p> after h3 is typically the date line */
+    .section h3 + p {
+      margin-top: 0;
+      margin-bottom: 0.2rem; 
+      color: #555;
+      font-size: 1rem;
+      font-style: italic; /* So the date line stands out subtly */
+    }
+
+    /* The second <p> after h3 is typically the position title */
+    .section h3 + p + p {
+      margin-top: 0;
+      margin-bottom: 0.4rem; 
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    /* Bullet lists (experience details) */
+    .section ul {
+      padding-left: 1.5rem; /* Indent bullets slightly */
+      margin: 0;           /* Remove default top/bottom margin */
+      margin-bottom: 1rem; 
+    }
+
+    .section li {
+      margin-bottom: 0.5rem; /* space between bullet points */
+    }
+
+    /* =========================
+      HORIZONTAL RULES
+    ========================= */
+    hr {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 2rem 0;
+    }
+
+    /* =========================
+      OPTIONAL PRINT FRIENDLY
+    ========================= */
+    /* 
+    @media print {
+      body {
+        background-color: #fff; 
+        color: #000;
+        margin: 1in auto; 
+      }
+      nav { display: none; } 
+    }
+    */
+
+    
+
   }
