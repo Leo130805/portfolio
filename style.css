@@ -86,26 +86,21 @@ body {
       text-wrap: balance;
     }
 
-    /* =========================
-   GLOBAL + BASE STYLES
-========================= */
     :root {
-      --accent-color: #e91e63; /* Change to any color you like */
+      --accent-color: #e91e63;
     }
 
     body {
       font-family: system-ui, sans-serif;
       color: #333;
       line-height: 1.6;
-      max-width: 100ch;           /* Nicely readable line width */
-      margin-inline: auto;        /* Center the content horizontally */
-      padding: 2rem;             /* Some breathing room around content */
-      background-color: #fff;     /* Keep it simple, or change to #f9f9f9, etc. */
+      max-width: 100ch;
+      margin-inline: auto;
+      padding: 2rem;
+      background-color: #fff;
     }
 
-    /* =========================
-      HEADER & NAV
-    ========================= */
+
     header {
       border-bottom: 2px solid #ddd;
       margin-bottom: 2rem;
@@ -133,38 +128,33 @@ body {
       color: var(--accent-color);
     }
 
-    /* =========================
-      SECTIONS (Resume Content)
-    ========================= */
     .section {
-      margin-bottom: 2rem; /* Spacing below each major section */
+      margin-bottom: 2rem;
     }
 
-    /* Section Headings (e.g., EDUCATION, EXPERIENCE) */
+    /* Section Headings*/
     .section h2 {
-      color: #e91e63; /* Pink accent color */
+      color: #e91e63;
       font-size: 1.8rem;
       margin-bottom: 0.5rem;
       text-transform: uppercase;
     }
 
-    /* Company / Institution Titles (h3) */
+    /* Company Titles */
     .section h3 {
       font-size: 1.3rem;
-      margin-bottom: 0.2rem;  /* Tighten spacing under company name */
+      margin-bottom: 0.2rem;
       font-weight: bold;
     }
 
-    /* The first <p> after h3 is typically the date line */
     .section h3 + p {
       margin-top: 0;
       margin-bottom: 0.2rem; 
       color: #555;
       font-size: 1rem;
-      font-style: italic; /* So the date line stands out subtly */
+      font-style: italic; 
     }
 
-    /* The second <p> after h3 is typically the position title */
     .section h3 + p + p {
       margin-top: 0;
       margin-bottom: 0.4rem; 
@@ -172,40 +162,19 @@ body {
       font-size: 1rem;
     }
 
-    /* Bullet lists (experience details) */
     .section ul {
-      padding-left: 1.5rem; /* Indent bullets slightly */
-      margin: 0;           /* Remove default top/bottom margin */
+      padding-left: 1.5rem;
+      margin: 0;
       margin-bottom: 1rem; 
     }
 
     .section li {
-      margin-bottom: 0.5rem; /* space between bullet points */
+      margin-bottom: 0.5rem;
     }
 
-    /* =========================
-      HORIZONTAL RULES
-    ========================= */
     hr {
       border: none;
       border-top: 1px solid #eee;
       margin: 2rem 0;
     }
-
-    /* =========================
-      OPTIONAL PRINT FRIENDLY
-    ========================= */
-    /* 
-    @media print {
-      body {
-        background-color: #fff; 
-        color: #000;
-        margin: 1in auto; 
-      }
-      nav { display: none; } 
-    }
-    */
-
-    
-
   }
