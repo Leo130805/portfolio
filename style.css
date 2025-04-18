@@ -1,5 +1,23 @@
+html {
+  color-scheme: light dark;
+  background-color: Canvas;
+  color: CanvasText;
+}
+
 :root{
-  --color-accent: oklch(65% 50% 0);
+  --color-accent: oklch(65% 30% 340);
+}
+
+html[color-scheme="light"] {
+  color-scheme: light;
+}
+
+html[color-scheme="dark"] {
+  color-scheme: dark;
+}
+
+html:not([color-scheme]) {
+  color-scheme: light dark;
 }
 
 body {
@@ -11,10 +29,9 @@ body {
     nav {
       display: flex;
       margin-bottom: auto;
-      border-bottom-width: 0.1px;
-      border-bottom-style: solid;
-      border-bottom-color: oklch(80% 3% 200);
-      
+
+      --border-color: oklch(50% 10% 200 / 40%);
+      border-bottom: 1px solid var(--border-color);
 
       a {
         flex: 1;
@@ -35,8 +52,27 @@ body {
         border-bottom-width: 0.4em;
         border-bottom-style: solid;
         border-bottom-color: var(--color-accent);
-        background-color: oklch(from var(--color-accent) 95% 5% h)
+        background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
       }
+    }
+
+    body {
+      position: relative;
+    }
+    
+    .color-scheme {
+      position: absolute;
+      top: 1rem;
+      right: 1rem; 
+      font-size: 0.8em; 
+      display: flex;
+      align-items: center;
+      gap: 0.25em;
+    }
+    
+    .color-scheme select {
+      font: inherit;
+      padding: 0.1em 0.3em;
     }
 
     input, textarea, button, label {
