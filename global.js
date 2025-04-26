@@ -3,17 +3,6 @@ console.log("IT’S ALIVE!");
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
-/*
-const navLinks = $$("nav a");
-
-let currentLink = navLinks.find(
-  (a) => a.host === location.host && a.pathname === location.pathname
-);
-
-if (currentLink) {
-  currentLink.classList.add("current");
-}
-  */
 
 const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
   ? "/"
@@ -81,3 +70,62 @@ select.addEventListener('change', (e) => {
     document.documentElement.style.colorScheme = scheme;
     localStorage.setItem('color-scheme', scheme);
   });
+
+const form = document.querySelector('form');
+if (form) {
+  form.addEventListener('submit', e => {
+    e.preventDefault();                         // stop the default submit
+    const data = new FormData(form);            // grab subject & body
+    const parts = [];
+
+    for (let [name, value] of data) {
+      // encode spaces as %20 (not +) and any other special chars
+      parts.push(`${name}=${encodeURIComponent(value)}`);
+    }
+
+    // stitch into mailto URL and open your mail client
+    const mailtoURL = `${form.action}?${parts.join('&')}`;
+    location.href = mailtoURL;
+  });
+}
+
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL
+    const response = await fetch(url);
+    console.log(response);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+  }
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  containerElement.innerHTML = ''; // Step 2: Clear existing content
+
+  projects.forEach(project => {
+    const card = document.createElement('div');
+    card.classList.add('project-card');
+  
+    card.innerHTML = `
+      <${headingLevel}>${project.title}</${headingLevel}>
+      <img class="project-image" src="${project.image}" alt="${project.title}">
+      <p>${project.description}</p>
+    `;
+  
+    containerElement.appendChild(card);
+  });  
+}
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
+
+
+

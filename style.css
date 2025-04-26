@@ -213,4 +213,27 @@ body {
       border-top: 1px solid #eee;
       margin: 2rem 0;
     }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .project-card {
+      width: 100%;
+      padding: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      background-color: #fff;
+      box-sizing: border-box;
+    }
+    
+    .project-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 1rem;
+      border-radius: 4px;
+    }
   }
