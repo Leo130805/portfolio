@@ -79,11 +79,9 @@ if (form) {
     const parts = [];
 
     for (let [name, value] of data) {
-      // encode spaces as %20 (not +) and any other special chars
       parts.push(`${name}=${encodeURIComponent(value)}`);
     }
 
-    // stitch into mailto URL and open your mail client
     const mailtoURL = `${form.action}?${parts.join('&')}`;
     location.href = mailtoURL;
   });
@@ -117,6 +115,9 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       <${headingLevel}>${project.title}</${headingLevel}>
       <img class="project-image" src="${project.image}" alt="${project.title}">
       <p>${project.description}</p>
+      <div class="project-meta">
+      <small>&copy; ${project.year}</small>
+      </div>
     `;
   
     containerElement.appendChild(card);
