@@ -213,7 +213,7 @@ body {
       border-top: 1px solid #eee;
       margin: 2rem 0;
     }
-
+    /* projects card */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -269,7 +269,7 @@ body {
       flex-wrap: wrap;
       justify-content: center;
     }
-
+    /* legend for pie chart in Projects page */
     .legend {
       flex: 1;
       display: grid;
@@ -296,5 +296,102 @@ body {
       }
       path { cursor: pointer; }
 
+    }
+    /* lab6 */
+    .summary–title {
+      margin: 0;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #111;
+    }
+    /* Summary table in Meta page  */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-template-rows: auto auto;
+      gap: 1.5rem 0;
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    .stats dt {
+      grid-row: 1;
+      margin: 0;
+      font-size: 0.75rem;
+      color: #666;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+   
+    .stats dd {
+      grid-row: 2;
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #111;
+      text-align: center;
+    }
+    /* Grid line opacity for plot on Meta page */
+    .tick line {
+      stroke: lightgray;
+      stroke-opacity: 0.5;
+    }
+
+    .tooltip {
+      position: fixed;
+      top: 1em;
+      left: 1em;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 1em;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    }
+
+    dl.info {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.25em 1em;
+      font-size: 0.9em;
+      margin: 1em;
+      transition-duration: 500ms;
+      transition-property: opacity, visibility;
+    }
+
+    /* Adjusting visibility of tooltip*/
+    dl.info[hidden]:not(:hover, :focus-within) {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    circle {
+      transition: 200ms;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+    
+    circle:hover {
+      transform: scale(1.5);
+    }
+    /* Styling the selection rectangle on Meta page */
+    @keyframes marching-ants {
+      to {
+        stroke-dashoffset: -8; /* 5 + 3 */
+      }
+    }
+    
+    .selection {
+      fill-opacity: 0.1;
+      stroke: black;
+      stroke-opacity: 0.7;
+      stroke-dasharray: 5 3;
+      animation: marching-ants 2s linear infinite;
+    }
+
+    circle.selected {
+      fill: #ff6b6b;
     }
   }
